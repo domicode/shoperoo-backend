@@ -1,0 +1,2 @@
+class SeasonCountry < ApplicationRecord
+end
