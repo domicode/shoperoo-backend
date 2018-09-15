@@ -38,4 +38,15 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'Season' do
+    list do
+      configure :created_at do
+        hide
+      end
+      configure :updated_at do
+        hide
+      end
+    end
+  end
 end

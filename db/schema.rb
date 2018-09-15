@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180915082811) do
+ActiveRecord::Schema.define(version: 20180915094545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180915082811) do
     t.float "energy_usage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "substitute_id"
   end
 
   create_table "season_countries", force: :cascade do |t|
@@ -41,12 +42,22 @@ ActiveRecord::Schema.define(version: 20180915082811) do
   end
 
   create_table "seasons", force: :cascade do |t|
-    t.date "from"
-    t.date "to"
-    t.bigint "product_id_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id_id"], name: "index_seasons_on_product_id_id"
+    t.boolean "january"
+    t.boolean "february"
+    t.boolean "march"
+    t.boolean "april"
+    t.boolean "may"
+    t.boolean "june"
+    t.boolean "july"
+    t.boolean "august"
+    t.boolean "september"
+    t.boolean "october"
+    t.boolean "november"
+    t.boolean "december"
+    t.index ["product_id"], name: "index_seasons_on_product_id"
   end
 
   create_table "shops", force: :cascade do |t|
