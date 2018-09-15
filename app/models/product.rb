@@ -3,6 +3,13 @@ class Product < ApplicationRecord
   has_one :substitute, class_name: 'Product', foreign_key: 'substitute_id'
 
   def substitute
-    return Product.find(substitute_id)
+    if substitute_id.present?
+      Product.find(substitute_id)
+    end
+  end
+
+  def has_season?
+    month = Date.today.strftime("%B").downcase
+    seasons.where(month, true).present?
   end
 end
