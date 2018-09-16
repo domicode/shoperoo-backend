@@ -3,7 +3,7 @@ class Api::V1::SubscriptionsController < ApplicationController
     subscription = Subscription.new(email: params["email"])
 
     if subscription.save
-      render json: { status: 'success' }
+      render json: { result: 'success' }
     else
       head 500
     end
