@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 
   def co2_score
     if co2_usage.present?
-      100 - co2_usage
+      100 - co2_usage * 10
     else
       0
     end
